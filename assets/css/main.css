@@ -231,6 +231,16 @@ p {
 a.download-btn{
 padding: 10px;
 }
+@media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px){
+  .sticky .navbar  .navbar-nav .nav-item a {
+    padding:8px;
+}
+
+}
+
+.sticky .navbar .navbar-nav .nav-item a {
+  padding:8px;
+}
 
 .main-btn {
   display: inline-block;
