@@ -15,6 +15,10 @@
   visibility: hidden;
 }
 
+#__next{
+  background-color: red;
+}
+
 /*===========================
     01.COMMON css 
 ===========================*/
@@ -224,6 +228,9 @@ p {
     padding-right: 20px;
   }
 }
+a.download-btn{
+padding: 10px;
+}
 
 .main-btn {
   display: inline-block;
@@ -250,6 +257,10 @@ p {
 
 .main-btn:hover {
   color: #fff;
+}
+
+.discord-btn{
+  background:#5864F2;
 }
 
 .main-btn.border-btn {
@@ -302,8 +313,8 @@ p {
   color: #fff;
   border-radius: 5px;
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 90px;
+  right: 10px;
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.3s ease-out 0s;
@@ -2316,7 +2327,8 @@ video {
 }
 
 .testimonial-section{
-  padding:170px 0
+  display: none;
+  padding:0px 0
 }
 @media only screen and (min-width:768px) and (max-width:991px){
   .testimonial-section{
