@@ -801,7 +801,7 @@ padding: 10px;
   background-image: url("../img/hero/hero-bg.svg");
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-size: cover;
 }
 
 @media (max-width: 767px) {
