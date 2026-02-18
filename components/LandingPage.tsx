@@ -687,12 +687,12 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                {/* LAUNCH */}
+                {/* ReadFast Plus */}
                 <div className="col-lg-4 col-md-8 col-sm-10">
                   <div className="single-pricing">
                     <div className="pricing-header">
-                      <h1 className="price">$8</h1>
-                      <h3 className="package-name">LAUNCH</h3>
+                      <h1 className="price">$4.99</h1>
+                      <h3 className="package-name">ReadFast Plus</h3>
                     </div>
                     <div className="content">
                       <ul>
@@ -749,12 +749,12 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                {/* ORBIT */}
+                {/* ReadFast Pro */}
                 <div className="col-lg-4 col-md-8 col-sm-10">
                   <div className="single-pricing">
                     <div className="pricing-header">
-                      <h1 className="price">$24</h1>
-                      <h3 className="package-name">ORBIT</h3>
+                      <h1 className="price">$9.99</h1>
+                      <h3 className="package-name">ReadFast Pro</h3>
                     </div>
                     <div className="content">
                       <ul>
@@ -885,12 +885,12 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                {/* Standard */}
+                {/* ReadFast Plus Yearly */}
                 <div className="col-lg-4 col-md-8 col-sm-10">
                   <div className="single-pricing">
                     <div className="pricing-header">
-                      <h1 className="price">$86</h1>
-                      <h3 className="package-name">Standard Account</h3>
+                      <h1 className="price">$39.99</h1>
+                      <h3 className="package-name">ReadFast Plus Yearly</h3>
                     </div>
                     <div className="content">
                       <ul>
@@ -944,12 +944,12 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                {/* Premium */}
+                {/* Pro Yearly */}
                 <div className="col-lg-4 col-md-8 col-sm-10">
                   <div className="single-pricing">
                     <div className="pricing-header">
-                      <h1 className="price">$268</h1>
-                      <h3 className="package-name">Premium Account</h3>
+                      <h1 className="price">$69.99</h1>
+                      <h3 className="package-name">Pro Yearly</h3>
                     </div>
                     <div className="content">
                       <ul>

@@ -4,4 +4,4 @@
 :HL["/css/animate.css","style"]
 :HL["/css/main.css","style"]
 :HL["https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css","style"]
-0:{"buildId":"EvzcDxvyG18NDKgP3P2uu","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"S29DBCTJz4ESvWYhk9mpX","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
