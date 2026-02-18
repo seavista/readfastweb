@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/58bff0a0b5e7e506.css","style"]
+:HL["/css/bootstrap.min.css","style"]
+:HL["/css/lineicons.css","style"]
+:HL["/css/animate.css","style"]
+:HL["/css/main.css","style"]
+:HL["https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css","style"]
+:HL["/img/logo/logo.svg","image"]
+0:{"buildId":"Rin62FjOXbI3m_8jMSfJK","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"refund-policy","paramType":null,"paramKey":"refund-policy","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
