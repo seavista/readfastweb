@@ -6,6 +6,7 @@ import Link from "next/link";
 const APP_STORE_URL = "#";
 const GOOGLE_PLAY_URL = "#";
 const DISCORD_URL = "https://discord.gg/UTY9wyvRR6";
+const ORIGINAL_YOUTUBE_VIDEO_ID = "WZGRzv0-UEU";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -343,6 +344,42 @@ const featureModules = [
   "Focus Credits + achievements economy",
 ];
 
+const appScreens = {
+  hero: {
+    src: "/img/hero/hero-img.png",
+    alt: "ReadFast app interface preview with speed reading controls.",
+  },
+  library: [
+    {
+      src: "/img/about/about-1.png",
+      alt: "ReadFast reading library view.",
+      label: "Library",
+    },
+    {
+      src: "/img/about/about-2.png",
+      alt: "ReadFast comprehension and summary workflow.",
+      label: "Summaries",
+    },
+    {
+      src: "/img/about/about-3.png",
+      alt: "ReadFast training and quiz flow.",
+      label: "Training",
+    },
+  ],
+  prosody: [
+    {
+      src: "/img/about/about-3.png",
+      alt: "ReadFast adaptive reading screen for pace and focus.",
+      label: "Adaptive Reader",
+    },
+    {
+      src: "/img/about/about-4.png",
+      alt: "ReadFast analytics and retention progress screen.",
+      label: "Retention Tracking",
+    },
+  ],
+};
+
 type RsvpToken = {
   text: string;
   emphasis?: boolean;
@@ -446,6 +483,43 @@ const RSVP_SAMPLE_TOKENS: RsvpToken[] = [
   { text: "time." },
 ];
 
+type ReadingStyleMode = "rsvp" | "focus" | "ereader";
+
+const READING_STYLE_SLIDES: Array<{
+  id: ReadingStyleMode;
+  title: string;
+  summary: string;
+  detail: string;
+  outcomes: string[];
+}> = [
+  {
+    id: "rsvp",
+    title: "RSVP Mode",
+    summary: "One focal point with adaptive speed ramping for high-velocity intake.",
+    detail:
+      "Designed for rapid intake, RSVP keeps your eyes anchored to a single focal point while speed increases in controlled steps.",
+    outcomes: ["Minimizes eye travel and regression", "Raises pace while preserving comprehension checks"],
+  },
+  {
+    id: "focus",
+    title: "Focus Mode",
+    summary: "Grouped words and guided lines reduce regression and keep your place.",
+    detail:
+      "Focus Mode presents words in grouped chunks and line guidance so attention stays stable through dense reading.",
+    outcomes: ["Great for long reports, textbooks, and study notes", "Reduces drift with structure and rhythm cues"],
+  },
+  {
+    id: "ereader",
+    title: "eReader Mode",
+    summary: "Comfort-first long-form reading with customizable typography and spacing.",
+    detail:
+      "eReader Mode prioritizes comfort for longer sessions with flexible typography, spacing, and visual themes.",
+    outcomes: ["Best for deep reading and sustained retention", "Personalized layout for your reading brain type"],
+  },
+];
+
+const RSVP_STYLE_WORDS = ["ReadFast", "locks", "focus", "ramps", "speed", "protects", "meaning", "retention"];
+
 function splitForFocusCharacter(token: string): { prefix: string; focus: string; suffix: string } {
   const chars = Array.from(token);
   const firstWordChar = chars.findIndex((char) => /[A-Za-z0-9]/.test(char));
@@ -464,6 +538,126 @@ function splitForFocusCharacter(token: string): { prefix: string; focus: string;
     focus: chars[focusIndex] ?? "",
     suffix: chars.slice(focusIndex + 1).join(""),
   };
+}
+
+function ReadingStylesShowcase() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [rsvpWordIndex, setRsvpWordIndex] = useState(0);
+
+  const activeSlide = READING_STYLE_SLIDES[activeIndex];
+  const rsvpWord = RSVP_STYLE_WORDS[rsvpWordIndex] ?? RSVP_STYLE_WORDS[0];
+  const splitToken = splitForFocusCharacter(rsvpWord);
+
+  useEffect(() => {
+    const timerId = window.setInterval(() => {
+      setActiveIndex((previous) => (previous + 1) % READING_STYLE_SLIDES.length);
+    }, 4200);
+
+    return () => {
+      window.clearInterval(timerId);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (activeSlide.id !== "rsvp") {
+      return;
+    }
+
+    const timerId = window.setInterval(() => {
+      setRsvpWordIndex((previous) => (previous + 1) % RSVP_STYLE_WORDS.length);
+    }, 320);
+
+    return () => {
+      window.clearInterval(timerId);
+    };
+  }, [activeSlide.id]);
+
+  return (
+    <div className="mt-5 rounded-2xl border border-slate-200/75 bg-white/80 p-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">Reading Styles Demo</p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        {READING_STYLE_SLIDES.map((slide, index) => (
+          <button
+            key={slide.id}
+            type="button"
+            onClick={() => setActiveIndex(index)}
+            className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+              activeIndex === index
+                ? "border-amber-400 bg-amber-100 text-amber-900"
+                : "border-slate-300 bg-white text-slate-600 hover:border-slate-400 hover:text-slate-900"
+            }`}
+          >
+            {slide.title}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-4 overflow-hidden rounded-xl bg-slate-950 px-4 py-6 text-white">
+        {activeSlide.id === "rsvp" ? (
+          <div className="mx-auto max-w-lg">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-amber-300/90">RSVP center focus</p>
+            <div className="mt-3 min-h-[8rem] content-center">
+              <div className="rf-rsvp-orp-line text-4xl sm:text-5xl">
+                <span className="rf-rsvp-prefix">{splitToken.prefix}</span>
+                <span className="rf-rsvp-focus">{splitToken.focus}</span>
+                <span className="rf-rsvp-suffix">{splitToken.suffix}</span>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
+        {activeSlide.id === "focus" ? (
+          <div className="mx-auto max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cyan-200">Focus groups + line guidance</p>
+            <div className="mt-3 space-y-3 text-left text-sm leading-relaxed text-slate-100">
+              <p>
+                <span className="rounded bg-white/15 px-1.5 py-0.5">ReadFast groups related words</span> so your eyes
+                move less and understanding stays strong.
+              </p>
+              <p className="relative">
+                <span className="absolute inset-x-0 top-1/2 h-[2px] -translate-y-1/2 bg-amber-500/35" />
+                <span className="relative rounded bg-amber-300/20 px-1.5 py-0.5">
+                  Guided line focus keeps your place in dense passages.
+                </span>
+              </p>
+              <p>
+                <span className="rounded bg-white/15 px-1.5 py-0.5">Ideal for study sessions, reports, and deep work.</span>
+              </p>
+            </div>
+          </div>
+        ) : null}
+
+        {activeSlide.id === "ereader" ? (
+          <div className="mx-auto max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-emerald-200">eReader comfort mode</p>
+            <div className="mt-3 rounded-xl bg-white/95 p-4 text-slate-800 shadow-inner">
+              <p className="text-base leading-7 [font-family:'Georgia',serif]">
+                Read in a classic book layout with calmer pacing, comfortable spacing, and typography tuned for long
+                sessions.
+              </p>
+              <p className="mt-3 text-sm text-slate-600">
+                Switch themes, font size, spacing, and chunking to match your brain and your reading goal.
+              </p>
+            </div>
+          </div>
+        ) : null}
+
+        <div className="mx-auto mt-5 max-w-2xl border-t border-white/15 pt-4 text-left">
+          <p className="text-sm leading-relaxed text-slate-100">{activeSlide.detail}</p>
+          <ul className="mt-3 space-y-2 text-xs text-slate-300">
+            {activeSlide.outcomes.map((outcome) => (
+              <li key={outcome} className="flex items-start gap-2">
+                <span className="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-amber-400" />
+                <span>{outcome}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p className="mt-3 text-xs text-slate-600">{activeSlide.summary}</p>
+    </div>
+  );
 }
 
 function PricingCard({ plan }: { plan: Plan }) {
@@ -681,7 +875,19 @@ export default function LandingPage() {
 
             <aside className="rf-card relative overflow-hidden border border-white/40 bg-white/80 p-4 backdrop-blur-sm sm:p-6">
               <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-amber-300/40 blur-2xl" />
-              <RsvpProsodyDemo compact />
+              <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-950/95">
+                <div className="aspect-video w-full">
+                  <iframe
+                    className="h-full w-full"
+                    src={`https://www.youtube.com/embed/${ORIGINAL_YOUTUBE_VIDEO_ID}?rel=0&playsinline=1`}
+                    title="ReadFast original app introduction video"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
 
               <div className="mt-5">
                 <p className="rf-label">Training Loop</p>
@@ -752,6 +958,11 @@ export default function LandingPage() {
             <h3 className="mt-3 font-display text-2xl font-semibold text-slate-950">
               Everything you need to read faster and understand deeper.
             </h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-700">
+              ReadFast adapts to how you think in real time. Preview the three core reading styles below, then switch
+              modes based on your goal: rapid intake, deep focus, or long-form comfort.
+            </p>
+            <ReadingStylesShowcase />
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {featureModules.map((module, index) => (
                 <div key={module} className="rounded-xl border border-slate-200/75 bg-white/70 p-3 text-sm text-slate-700">
@@ -822,6 +1033,22 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              {appScreens.library.map((screen) => (
+                <figure key={screen.src} className="overflow-hidden rounded-xl border border-slate-200/70 bg-white">
+                  <img
+                    src={screen.src}
+                    alt={screen.alt}
+                    className="h-48 w-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption className="px-2 py-1.5 text-center text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-600">
+                    {screen.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
 
           <div className="rf-card border border-white/45 bg-white/80 p-6 backdrop-blur-sm">
@@ -890,6 +1117,22 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {appScreens.prosody.map((screen) => (
+                <figure key={screen.src} className="overflow-hidden rounded-2xl border border-white/70 bg-white/80">
+                  <img
+                    src={screen.src}
+                    alt={screen.alt}
+                    className="h-72 w-full object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption className="px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.08em] text-slate-600">
+                    {screen.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
             <RsvpProsodyDemo />
           </div>
         </section>
