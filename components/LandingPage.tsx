@@ -875,19 +875,7 @@ export default function LandingPage() {
 
             <aside className="rf-card relative overflow-hidden border border-white/40 bg-white/80 p-4 backdrop-blur-sm sm:p-6">
               <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-amber-300/40 blur-2xl" />
-              <div className="overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-950/95">
-                <div className="aspect-video w-full">
-                  <iframe
-                    className="h-full w-full"
-                    src={`https://www.youtube.com/embed/${ORIGINAL_YOUTUBE_VIDEO_ID}?rel=0&playsinline=1`}
-                    title="ReadFast original app introduction video"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
+              <RsvpProsodyDemo compact />
 
               <div className="mt-5">
                 <p className="rf-label">Training Loop</p>
@@ -951,6 +939,19 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
+            <div className="mt-6 overflow-hidden rounded-2xl border border-slate-300/70 bg-slate-950/95">
+              <div className="aspect-video w-full">
+                <iframe
+                  className="h-full w-full"
+                  src={`https://www.youtube.com/embed/${ORIGINAL_YOUTUBE_VIDEO_ID}?rel=0&playsinline=1`}
+                  title="ReadFast original app introduction video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
           </div>
 
           <div className="rf-card border border-white/45 bg-white/80 p-6 backdrop-blur-sm">
