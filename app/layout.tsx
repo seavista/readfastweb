@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ReadFast - Read Smarter with AI",
+  title: "ReadFast - Speed Reading + Prosody + Brain Training",
   description:
-    "ReadFast is revolutionizing the way you read by utilizing the latest in AI technology to enhance reading speed and comprehension.",
+    "Read faster without losing meaning. ReadFast combines speed reading, AI summaries, comprehension quizzes, and prosody-powered emphasis with personalized Brain Types training.",
+  openGraph: {
+    title: "Built for different reading brains.",
+    description: "Train speed. Prove comprehension. Retain more.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -16,40 +20,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
-
-        {/* Legacy CSS */}
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/lineicons.css" />
-        <link rel="stylesheet" href="/css/animate.css" />
-        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
+          href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
         />
-
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-WBLMPX32HP"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-WBLMPX32HP');`,
-          }}
-        />
+        <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png" />
+        <link rel="stylesheet" href="/css/lineicons.css" />
       </head>
-      <body>
-        {children}
-
-        {/* Legacy JS */}
-        <Script src="/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
-        <Script src="/js/wow.min.js" strategy="afterInteractive" />
-        <Script src="/js/tiny-slider.js" strategy="afterInteractive" />
-        <Script src="/js/main.js" strategy="afterInteractive" />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
