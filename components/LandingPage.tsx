@@ -21,7 +21,7 @@ const trustHooks = [
   {
     icon: "lni lni-headphone-alt",
     title: "Prosody & Emphasis",
-    copy: "Hear meaning, not monotone.",
+    copy: "ReadFast guides written meaning; optional TTS adds audio support.",
   },
   {
     icon: "lni lni-rocket",
@@ -102,9 +102,9 @@ const personalizationBullets = [
 ];
 
 const prosodyBullets = [
-  "Emphasis on key phrases and transitions",
-  "Better rhythm for sustained attention",
-  "Great for long-form reading fatigue and ADHD-style drift",
+  "ReadFast emphasis on key phrases and transitions while you read",
+  "Prosody rhythm cues in written text for sustained attention",
+  "Optional TTS audio layer for fatigue and ADHD-style drift",
 ];
 
 const whyFeatures = [
@@ -125,8 +125,8 @@ const whyFeatures = [
   },
   {
     icon: "lni lni-headphone-alt",
-    title: "Prosody & Emphasis (Audio that actually helps)",
-    copy: "Hear the shape of the content so your brain holds onto it.",
+    title: "Prosody & Emphasis (ReadFast Written Guidance)",
+    copy: "ReadFast marks the structure in written words; TTS audio is optional support.",
   },
   {
     icon: "lni lni-rocket",
@@ -197,7 +197,7 @@ const plusUpgradeLabels = [
   "Adjustable Summary Compression Slider",
   "Adaptive Quiz Difficulty",
   "Vocabulary Capture & Review",
-  "Enhanced Text-To-Speech with Prosody Emphasis",
+  "Enhanced Text-To-Speech + ReadFast Prosody & Emphasis",
   "Structural Emphasis (Transitions, Conclusions, Key Points)",
   "Detailed Speed Analytics",
   "Comprehension Accuracy Tracking",
@@ -337,7 +337,7 @@ const featureModules = [
   "Focus Highlight + distraction control",
   "Smart Summaries (compression slider)",
   "AI Comprehension Quizzes (instant + adaptive)",
-  "Prosody & Emphasis TTS",
+  "ReadFast Prosody & Emphasis + optional TTS audio",
   "Reading Brain Types Quiz + personalized defaults",
   "Training Plans (beginner to advanced)",
   "Progress analytics (speed, comprehension, streaks)",
@@ -853,8 +853,8 @@ export default function LandingPage() {
               </h1>
               <p className="rf-classic-copy mt-6 max-w-2xl text-lg leading-relaxed text-white/95">
                 ReadFast turns reading into a trainable cognitive skill. Use adaptive speed pacing, center-character
-                focus guidance, AI comprehension checks, and prosody-powered emphasis to read faster without losing
-                meaning.
+                focus guidance, AI comprehension checks, and ReadFast prosody-powered emphasis on written words. Add
+                optional TTS audio when you want an extra layer of support.
               </p>
               <p className="rf-classic-copy mt-4 max-w-2xl text-base font-semibold text-white/95">
                 Watch the live demo ramp from 230 to 530 WPM and feel how quickly your pace can rise when comprehension
@@ -1108,8 +1108,9 @@ export default function LandingPage() {
               Prosody-powered reading: emphasis that makes meaning stick.
             </h2>
             <p className="rf-classic-copy mt-4 max-w-3xl text-slate-700">
-              Most readers only speed up words. ReadFast speeds up understanding. Prosody and emphasis signal structure,
-              contrast, and conclusions so your brain can keep comprehension high while pace climbs.
+              Most readers only speed up words. ReadFast speeds up understanding. Our prosody and emphasis work on the
+              written words you see, signaling structure, contrast, and conclusions so comprehension stays high while
+              pace climbs. TTS is available as an optional audio layer.
             </p>
             <ul className="rf-classic-copy mt-6 grid gap-3 text-sm text-slate-700 md:grid-cols-3">
               {prosodyBullets.map((bullet) => (
@@ -1255,8 +1256,8 @@ export default function LandingPage() {
             <p className="rf-label text-cyan-200">Community</p>
             <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">Help shape the next era of reading.</h2>
             <p className="mt-4 max-w-3xl text-slate-200">
-              Join early access to get first access to new training modes, prosody upgrades, and Brain Types tuning,
-              while helping us build the most effective reading system on the planet.
+              Join early access to get first access to new training modes, ReadFast prosody and emphasis upgrades, and
+              Brain Types tuning, while helping us build the most effective reading system on the planet.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a className="rf-btn-primary !bg-white !text-slate-900" href="#download">
